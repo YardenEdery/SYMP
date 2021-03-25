@@ -46,12 +46,12 @@ class MinorTest:
         self.logs(result_array)
 
     def logs(self,test_result_array):
-        for handler in logging.root.handlers[:]:
-            logging.root.removeHandler(handler)
-
         for i in range (0,len(test_result_array)):
             logging.basicConfig(format='[INFO] : %(asctime)s - %(message)s', level = logging.INFO, filename = self.log_path, filemode='w') 
             logging.info(test_result_array[i])
+
+        for handler in logging.root.handlers[:]:
+            logging.root.removeHandler(handler)
 
 
 
