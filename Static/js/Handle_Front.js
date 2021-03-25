@@ -34,6 +34,7 @@ document.getElementById('generate').onclick = function() {
     var submitDevice = document.createElement("BUTTON");
     submitDevice.innerHTML = "Submit Device";
     submitDevice.id = "submitDevice"
+    submitDevice.className = "submitbtn"
     document.body.appendChild(submitDevice);
 
     //Function which dynamically reloads our html
@@ -79,7 +80,8 @@ function LoadPc(){
     my_form = document.getElementById("myform");
     
     //input's text - ping.
-    var ping_text_view = document.createTextNode("ping other devices: ");
+    var ping_text_view = document.createElement("p");
+    ping_text_view.innerHTML = "ping other devices:"
     myform.appendChild(ping_text_view);    
     //the input itself - ping.
     var ping_test = document.createElement("input");    
@@ -93,7 +95,8 @@ function LoadPc(){
     myform.appendChild(document.createElement("br"))
 
     //input's text - nslookup.
-    var nslookup_text_view = document.createTextNode("choose a domain for lookup test: ");
+    var nslookup_text_view = document.createElement("p")
+    nslookup_text_view.innerHTML = "choose a domain for lookup test: "
     myform.appendChild(nslookup_text_view);    
     //the input itself - nslookup.
     var nslookup_test = document.createElement("input");    
@@ -112,12 +115,11 @@ function LoadPc(){
     
     //after creating submit btn linking it to a function on click.
     my_form.addEventListener("submit",function(){CollectInputs()},false);
-    
 }
 
 function ValidateIPaddress(inputText){
     var ipformat = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
-    if(inputText.value.match(ipformat)){
+    if(inputText.match(ipformat)){
         document.body.inputText.focus();
     return true;
     }
@@ -142,6 +144,7 @@ function create_post_button(){
     post_btn.setAttribute("type","submit");
     post_btn.id = "post_btn";
     post_btn.value = "Run Tests";
+    post_btn.className = "postbtn"
     return post_btn
 }
 function CollectInputs(){
@@ -155,10 +158,16 @@ function CollectInputs(){
 
     //build your fucking json bitch.    
     var user_inputs = document.getElementsByClassName("inputs")
-    for (var input = 0; input<user_inputs.length; input++){
-        MinorTestsJson["Minor-tests"]["command"][input].push(user_inputs[input].value) //user_inputs[input].value;
+    
+    //checks if the ip input is valid
+    if(ValidateIPaddress(user_inputs[0].value)){
+        for (var input = 0; input<user_inputs.length; input++){
+            MinorTestsJson["Minor-tests"]["command"][input].push(user_inputs[input].value) //user_inputs[input].value;
+        }
     }
-
+    else{
+        return "Invalid Ip has been assigned"
+    }
     PostToBackend(MinorTestsJson)
 }
 function PostToBackend(MinorTestsJson){

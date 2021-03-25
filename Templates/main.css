@@ -1,0 +1,99 @@
+h1{
+    background-color: #f8baaf;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:300%;	
+    padding:20px 50px; 
+    margin-top: -10px;
+    margin-left: -5px;
+    color: #AC3B61;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 25px;
+}
+body{
+    background-color:antiquewhite;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+button {
+	box-shadow:inset 0px 1px 0px 0px #ffaba3;
+	background:linear-gradient(to bottom, #fc8d83 5%, #dbbab8 100%);
+	background-color:#fc8d83;
+	border-radius:6px;
+    margin-left: 8%;
+	border:1px solid #d97b73;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:35px;
+	font-weight:bold;
+	padding:100px 200px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #a38684;
+}
+button:hover {
+	background:linear-gradient(to bottom, #dbbab8 5%, #fc8d83 100%);
+	background-color:#dbbab8;
+}
+button:active {
+	position:relative;
+	top:1px;
+}
+label{
+    color:#AC3B61;
+    font-size: 50px;
+    display: block;
+    text-align: center;
+    line-height: 150%;
+    margin-top: 100px;
+    margin-left: 10%;
+}
+select{
+    color:#AC3B61;
+    font-size: 40px;
+}
+button.submitbtn{
+    margin-left: 37%;
+    margin-top: 10%;
+}
+input.inputs{
+    color: #AC3B61;
+    font-size: 50px;
+    display: block;
+    text-align: center;
+    margin-left: 37%;
+    line-height: 150%;
+
+}
+input.postbtn{
+    box-shadow:inset 0px 1px 0px 0px #ffaba3;
+	background:linear-gradient(to bottom, #fc8d83 5%, #dbbab8 100%);
+	background-color:#fc8d83;
+	border-radius:6px;
+	border:1px solid #d97b73;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+    margin-left:39%;
+	font-size:35px;
+	font-weight:bold;
+	padding:100px 200px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #a38684;
+}
+p{
+    color: #AC3B61;
+    margin-left: 10%;
+    font-size: 50px;
+    text-align: center;
+}
+div.lst_div{
+    margin-top: -300px;
+}
