@@ -40,7 +40,7 @@ class MinorTest:
         self.set_finish_time()
         the_result, err = run_command.communicate() 
         the_result = the_result.strip().decode()
-        print (the_result)
+        #print (the_result)
         result_array = the_result.split("\r\n")
         #print(result_array)
         self.logs(result_array)
