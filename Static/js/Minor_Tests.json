@@ -1,0 +1,11 @@
+{
+    "Minor-tests":{
+                    "command":[["ping","dst_ip"],
+                              ["nslookup","domain"]]
+                            
+                  }
+} 
+                //  
+                  //"ping","nslookup","route","ip route","tracert/traceroute"
+                  //]
+//}
