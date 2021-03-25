@@ -1,15 +1,24 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, Response, url_for, redirect
 import argparse
 import json
+import os
+import time
 import Utils.MinorTest as MinorTest
 import Utils.MajorTest as MajorTest
+import threading
 
 app = Flask(__name__, static_folder="Static")
 LOG_PATH = "./Storage/Logs"
+global data
+
 
 @app.route('/', methods=['GET', 'POST'])
 def hello():
     if request.method == 'POST':
+        global data
+        if request.get_json() is None:
+            time.sleep(5)
+            return render_template("fin.html", data=data)
         data = request.get_json()
         minor_tests = []
         data["Minor-tests"]["logpath"] = []
@@ -21,9 +30,11 @@ def hello():
 
         # Create and activate the Major Test using all minor tests
         major_test = MajorTest.MajorTest(minor_tests)
-        major_test.activate()
-        data = json.dumps(data)
-        return data
+        t = threading.Thread(target=major_test.activate)
+        t.start()
+        t.join()
+        #data = json.dumps(data)
+        return render_template("fin.html")
 
     elif request.method == 'GET':
         return render_template("index.html")
@@ -39,4 +50,4 @@ if __name__ == '__main__':
         print("[+] To access the application use the following url:\nhttp://127.0.0.1:{}\n".format(args.port))
     else:
         print("[+] To access the application use the following url:\nhttp://{}:{}\n".format(args.host, args.port))
-    app.run(host=args.host, port=args.port, debug=True, use_reloader=False)
+    app.run(host=args.host, port=args.port, debug=False)

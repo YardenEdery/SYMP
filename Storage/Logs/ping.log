@@ -1,0 +1,8 @@
+[INFO] : 2021-03-25 11:35:52,887 - Pinging 0.0.0.1 with 32 bytes of data:
+[INFO] : 2021-03-25 11:35:52,888 - PING: transmit failed. General failure. 
+[INFO] : 2021-03-25 11:35:52,888 - PING: transmit failed. General failure. 
+[INFO] : 2021-03-25 11:35:52,888 - PING: transmit failed. General failure. 
+[INFO] : 2021-03-25 11:35:52,888 - PING: transmit failed. General failure. 
+[INFO] : 2021-03-25 11:35:52,889 - 
+[INFO] : 2021-03-25 11:35:52,889 - Ping statistics for 0.0.0.1:
+[INFO] : 2021-03-25 11:35:52,889 -     Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),

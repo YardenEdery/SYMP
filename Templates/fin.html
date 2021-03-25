@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<link rel="stylesheet" href="main.css">
+    <title>Suggestions</title>
+</head>
+
+<body>
+<h1>All Logs Paths Are: </h1>
+{% for log_path in data["Minor-tests"]["logpath"]%}
+	<h2>{{log_path}}</h2>
+	
+{% endfor %}
+</body>
+
+</html>
