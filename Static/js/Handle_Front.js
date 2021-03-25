@@ -155,7 +155,6 @@ function CollectInputs(){
 
     //build your fucking json bitch.    
     var user_inputs = document.getElementsByClassName("inputs")
-    alert(user_inputs[0].value)
     for (var input = 0; input<user_inputs.length; input++){
         MinorTestsJson["Minor-tests"]["command"][input].push(user_inputs[input].value) //user_inputs[input].value;
     }
@@ -175,6 +174,5 @@ function PostToBackend(MinorTestsJson){
         }
     };
     var data = JSON.stringify(MinorTestsJson);
-    alert(data)
     xhr.send(data);
 }
